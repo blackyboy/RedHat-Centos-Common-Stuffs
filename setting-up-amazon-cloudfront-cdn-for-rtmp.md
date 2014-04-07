@@ -10,7 +10,7 @@
 
 5. Copy your CloudFront RTMP domain name (example: s22xxxxxxxxxxxx.cloudfront.net) for later use.
 
-![selection_015](https://f.cloud.github.com/assets/4866182/2501509/ebc3c9f4-b36c-11e3-9dad-11bbafe466cc.png)
+![selection_015](https://raw.githubusercontent.com/blackyboy/Centos-Linux-Stuffs/master/Setup-images/setting_up_amazon_cloudfront_cdn_for_rtmp.png)
 
 
 Next we need to configure the Remote Storage Profile. In order to do this, we must click on the partner’s left drop-down box (under “Profiles”) and select “Remote Storage”. You should see the “Remote Storage Profiles” page for your publisher (If you haven’t yet set up any remote storage profiles, the list should be empty).
@@ -30,7 +30,7 @@ RTMP Delivery Base URL:   rtmp://s22xxxxxxxxxxx.cloudfront.net/cfx/st
 RTMP stream URL prefix:   /kaltura
 ```
 
-![selection_011](https://f.cloud.github.com/assets/4866182/2501518/0964bfb8-b36d-11e3-9c97-361d7591dc23.png)
+![selection_011](https://raw.githubusercontent.com/blackyboy/Centos-Linux-Stuffs/master/Setup-images/setting_up_amazon_cloudfront_cdn_for_rtmp_1.png)
 
 
 3. Save the Remote Storage Profile

@@ -51,7 +51,7 @@ HTTPS Delivery Base URL:  https://d2xxxxxxxxxxxx.cloudfront.net/kaltura
 
 ```
 
-![selection_010](https://f.cloud.github.com/assets/4866182/2501499/d5d50eb4-b36c-11e3-99c9-a5bba8bae719.png)
+![selection_010](https://raw.githubusercontent.com/blackyboy/Centos-Linux-Stuffs/master/Setup-images/setting-up-amazon-cloudfront-cdn.png)
 
 
 * Save the new Remote Storage Profile

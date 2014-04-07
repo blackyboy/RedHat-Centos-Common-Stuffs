@@ -42,7 +42,7 @@
 }
 ```
 
-![selection_014](https://f.cloud.github.com/assets/4866182/2501488/bf20b268-b36c-11e3-9b11-01a94b80059c.png)
+![selection_014](https://raw.githubusercontent.com/blackyboy/Centos-Linux-Stuffs/master/Setup-images/kaltura_s3_storage_setup)
 
 
   If this Policy was not added, We will face clip not found error when ever uploading a new video to kaltura.

@@ -17,25 +17,25 @@
 
   First, you must enable the necessary configuration options for your partner:
 
-* Find your partner in the list of partners, click on the right drop down box and select “Configure”
+* Find your partner in the list of partners, click on the right drop down box and select **Configure**
 
-* Under “Remote Storage Policy”, set Delivery Policy to “Remote Storage Only”
+* Under **Remote Storage Policy**, set Delivery Policy to “Remote Storage Only”
 
-* Check the “Delete exported storage” checkbox.
+* Check the **Delete exported storage** checkbox.
 
-* Under Enable/Disable Features, make sure that “Remote Storage” is checked.
+* Under Enable/Disable Features, make sure that **Remote Storage** is checked.
 
-* Click “Save”.
+* Click **Save**.
 
-  Next we must configure the Remote Storage Profile. In order to do this, we must click on the partner’s left drop-down   box (under “Profiles”) and select “Remote Storage”. You should see the “Remote Storage Profiles” page for your          publisher (If you haven’t yet set up any remote storage profiles, the list should be empty).
+  Next we must configure the Remote Storage Profile. In order to do this, we must click on the partner’s left drop-down   box (under **Profiles**) and select **Remote Storage**. You should see the **Remote Storage Profiles** page for your publisher (If you haven’t yet set up any remote storage profiles, the list should be empty).
 
   (Assuming that you have already set up an S3 bucket, and that you have an Access Key ID and a Secret Access Key)
 
-* Create a new profile by writing your publisher id in the right “Publisher ID” input box and clicking “Create New”.
+* Create a new profile by writing your publisher id in the right **Publisher ID** input box and clicking **Create New**.
 
-* Give a name to your Remote Storage (for example “Amazon S3″)
+* Give a name to your Remote Storage (for example **Amazon S3**)
 
-* For “Storage URL” type http://{yourbucketname}.s3.amazonaws.com (replace {yourbucketname} with your bucket name on S3)
+* For **Storage URL** type http://{yourbucketname}.s3.amazonaws.com (replace {yourbucketname} with your bucket name on S3)
 
 * In Storage Base Directory, write “/{yourbucketname}/kaltura” (keep in mind the leading slash, and change                 yourbucketname to your bucket name)
 
@@ -71,7 +71,7 @@ HTTPS Delivery Base URL:  https://d2xxxxxxxxxxxx.cloudfront.net/kaltura
 
 * Click on the dropdown box next to your new storage profile in the Remote Storage Profiles page in Kaltura Admin         Console
 
-* Select “Export Automatically” and then click “OK”
+* Select **Export Automatically** and then click **OK**
 
 * You will receive the confirmation that your storage was autoed :)
 

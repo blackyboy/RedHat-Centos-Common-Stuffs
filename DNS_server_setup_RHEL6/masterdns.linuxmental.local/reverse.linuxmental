@@ -1,0 +1,23 @@
+$TTL 86400
+@	IN SOA	masterdns.linuxmental.local. root.linuxmental.local. (
+				2014051001	; serial
+					3600	; refresh
+					1800	; retry
+					604800	; expire
+					86400 	; minimum
+)
+@		IN	NS	masterdns.linuxmental.local.
+@		IN	NS	slavedns.linuxmental.local.
+@		IN	PTR	linuxmental.local.
+masterdns	IN	A	192.168.0.200
+slavedns	IN	A	192.168.0.201
+node1		IN	A	192.168.0.205
+node2		IN	A	192.168.0.206
+node3		IN	A	192.168.0.207
+node4		IN	A	192.168.0.208
+200		IN	PTR	masterdns.linuxmental.local.
+201		IN	PTR	slavedns.linuxmental.local.
+205		IN	PTR	node1.linuxmental.local.
+206		IN	PTR	node2.linuxmental.local.
+207		IN	PTR	node3.linuxmental.local.
+208		IN	PTR	node4.linuxmental.local.

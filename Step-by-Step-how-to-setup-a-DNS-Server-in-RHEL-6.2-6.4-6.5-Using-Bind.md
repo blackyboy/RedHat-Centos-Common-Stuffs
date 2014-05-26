@@ -6,7 +6,7 @@ DNS = Domain Naming Service (or) Domain Name System
 DNS will resolve the host name for the particular IP address.
 
 
-Here I'm Using RHEL Server to Setup the DNS Server using BIND
+Here Im Using RHEL Server to Setup the DNS Server using BIND
 
 ```
 [root@masterdns ~]# lsb_release -a
@@ -60,14 +60,14 @@ IP Address : 	192.168.0.208  ## Hostname : node4.linuxmental.local
 // See /usr/share/doc/bind*/sample/ for example named configuration files.
 //
 options {
-	listen-on port 53 { 127.0.0.1; 192.168.0.200; }; # Master DNS Server's IP
+	listen-on port 53 { 127.0.0.1; 192.168.0.200; }; # Master DNS Servers IP
 	listen-on-v6 port 53 { ::1; };
 	directory 	"/var/named";
 	dump-file 	"/var/named/data/cache_dump.db";
         statistics-file "/var/named/data/named_stats.txt";
         memstatistics-file "/var/named/data/named_mem_stats.txt";
-	allow-query     { localhost; 192.168.0.0/24; }; # IP Range of Host's
-	allow-transfer  { localhost; 192.168.0.201; }; # Slave DNS Server's IP
+	allow-query     { localhost; 192.168.0.0/24; }; # IP Range of Hosts
+	allow-transfer  { localhost; 192.168.0.201; }; # Slave DNS Servers IP
 	recursion yes;
 
 	dnssec-enable yes;
@@ -201,9 +201,9 @@ node4           IN      A       192.168.0.208
 5. The files we created was in root group
     We need to change those files to named group
 
-Here we can see the file's which have the root group
+Here we can see the files which have the root group
 
-a.) List the files and see the permission's and group of those created zone files
+a.) List the files and see the permissions and group of those created zone files
 
 ```
 [root@masterdns ~]# ls -l /var/named/
@@ -285,7 +285,7 @@ Stopping named:                                            [  OK  ]
 Starting named:                                            [  OK  ]
 ```
 
-8. Make the named Service in runlevel's
+8. Make the named Service in runlevels
 
 ```
 [root@masterdns ~]# chkconfig named on

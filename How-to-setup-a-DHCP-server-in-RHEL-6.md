@@ -40,7 +40,7 @@ Edit the Config file to change the need configuration
 ```
 # vim /etc/dhcp/dhcpd.conf
 ```
-In Line number 7,8 Change the Domain name and Name server's
+In Line number 7,8 Change the Domain name and Name servers
 
 ```
 option domain-name "linuxmental.local";

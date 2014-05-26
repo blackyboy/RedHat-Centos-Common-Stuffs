@@ -1,6 +1,6 @@
-How to setup Email notification for SUDO Users access
+#### How to setup Email notification for SUDO Users access
 
-### **Edit the sudoer file using 
+Edit the sudoer file using 
 
 ```
 # visudo

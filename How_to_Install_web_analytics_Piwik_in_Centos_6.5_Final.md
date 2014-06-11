@@ -6,15 +6,17 @@
 
 * Download the piwik from Following URL
 
-http://piwik.org/download/
+  Download  :  http://piwik.org/download/
 
 * Operating system What Im Using is:
 
+```
 [root@monitoring ~]# lsb_release -a
 Distributor ID: CentOS
 Description:    CentOS release 6.5 (Final)
 Release:        6.5
 Codename:       Final
+```
 
 * Login to the Centos Machine which we need to install the analytics
 

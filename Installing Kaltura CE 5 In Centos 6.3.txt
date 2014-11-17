@@ -42,9 +42,6 @@ First we need to update the Server
 ```
 
 
-![1](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_001.png)
-
-
 Install the gcc compiler 
 
 
@@ -52,8 +49,6 @@ Install the gcc compiler
 # yum install gcc* -y
 # yum install vim make rsync
 ```
-
-![2](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_002.png)
 
 
 ### Install Apache server 
@@ -68,11 +63,6 @@ Install the gcc compiler
 
 
 Enable the modules in Apache.conf file at follwing lines 
-
-
-
-![4](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_004.png)
-
 
 
 
@@ -102,14 +92,7 @@ wget http://olex.openlogic.com/content/openlogic/apache/2.2.15/openlogic-apache-
 
 ```
 
-
-![5](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_005.png)
-
-
-
 Unzip it under any were 
-
-
 
 ```
 
@@ -117,10 +100,6 @@ Unzip it under any were
 
 
 ```
-
-
-![6](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_006.png)
-
 
 Open the Directory 
 
@@ -132,22 +111,14 @@ Open the Directory
 
 ```
 
-
-![7](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_007.png)
-
-
-
 Install the module file_cache using Below Command
 
 
 ```
-
 # apxs -i -a -c mod_file_cache.c
 
 
 ```
-
-![8](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_008.png)
 
 
 If not Its Help to install Use the below Script to get install all gcc 
@@ -205,9 +176,6 @@ Below Line 215 as
 ```
 
 
-![9](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_009.png)
-
-
 Restart the Apache
 
 
@@ -216,9 +184,6 @@ Restart the Apache
 # /etc/init.d/httpd start
 
 ```
-
-
-![10](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_010.png)
 
 
 ### PHP Installation 
@@ -236,9 +201,6 @@ fileinfo, bc, calander, date, filter, zlib, hash, mbstring, openssl, pcre, Gd, C
 # yum install php php-cli php-devel php-gd php-mbstring php-xml php-pecl-memcache.x86_64 php-pecl-memcached
 
 ```
-
-
-![11](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_011.png)
 
 
 Check Which Modules are installed For PHP Using command 
@@ -267,8 +229,6 @@ As im Doing here below
 # yum install php-cli.x86_64 php-common.x86_64 php-dba.x86_64 php-devel.x86_64 php-embedded.x86_64 php-enchant.x86_64 php-fpm.x86_64 php-gd.x86_64 php-imap.x86_64 php-intl.x86_64 php-ldap.x86_64 php-mbstring.x86_64
 # pecl install apc
 ```
-
-![12](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_012.png)
 
 
 But Need to Follow Some Steps For Enabling SSH2 and APC
@@ -459,10 +419,6 @@ Create a File info.php under www/hmtl to see weather all the php extensions were
 ```
 
 
-![14](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_014.png)
-
-
-
 Then Add these Codes to Get all php infos 
 
 
@@ -489,11 +445,8 @@ In Line 682
 
 ```
 
-![15](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_015.png)
-
 
 For PHP 5.2: Verify that variables_order parameter in php.ini includes C, G and P.
-
 
 
 Please verify that date.timezone parameter is set to the right timezone.
@@ -516,9 +469,6 @@ date.timezone = Asia/Calcutta
 
 ```
 
-![16](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_016.png)
-
-
 And change Longitude and Latitude too With Value 
 
 
@@ -527,9 +477,6 @@ date.default_latitude = 28.40
 date.default_longitude = 77.13
 
 ```
-
-
-![17](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_017.png)
 
 
 ### MSQL Installation 
@@ -616,10 +563,6 @@ strongly recommended for production servers.
 
 ```
 
-
-![18](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_018.png)
-
-
 After all Mysql Entry the Conf File looks like this 
 
 
@@ -644,9 +587,6 @@ log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
 
 ```
-
-![19](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_019.png)
-
 
 ### Set MySQL password
 
@@ -756,10 +696,6 @@ Unpacking JAR files...
 
 ```
 
-
-![20](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_020.png)
-
-
 ### Pentaho data integration
 
 
@@ -775,13 +711,7 @@ Create the /usr/local/pentaho/ directory
 
 ```
 
-
-![21](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_021.png)
-
-
-
 Change to the/usr/local/pentaho/directory
-
 
 
 ```
@@ -824,9 +754,6 @@ Rename the data-integration root directory into pdi.
 ```
 
 
-![22](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_022.png)
-
-
 Mail Server Setup
 
 Install MTA in server
@@ -853,11 +780,7 @@ Download Xymon from sourceforge
 
 ```
 
-![23](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_023.png)
-
-
 Xymon requires rrdtools and pcre. So install those packages before to proceed
-
 
 
 ```
@@ -866,17 +789,7 @@ Xymon requires rrdtools and pcre. So install those packages before to proceed
 
 ```
 
-
-![24](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_024.png)
-
-
-
 Extract it using tar -zxvf 
-
-
-
-![25](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_025.png)
-
 
 
 After completing this installation start the xymon installation. You can install Xymon by simple steps
@@ -889,10 +802,6 @@ After completing this installation start the xymon installation. You can install
 # make install
 
 ```
-
-![26](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_026.png)
-
-
 
 During the installation it will prompt you many queries, give the proper answer else the installation process will exit
 
@@ -917,10 +826,6 @@ Change the selinux from enforcing to disabled
 # selinux = disabled
 
 ```
-
-![3](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_003.png)
-
-
 
 We Have to restart the server if selinux Disable option need to take effect 
 
@@ -954,9 +859,6 @@ Then Extract it using tar
 
 ```
 
-![27](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_027.png)
-
-
 Navigate to the extracted Directory for installation 
 
 
@@ -973,11 +875,6 @@ Run the php Installation Script as follow
 # # php install.php
 
 ```
-
-
-![28](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_028.png)
-
-
 	
 Its Started For Setup Here u can see the Step by step below
 
@@ -1085,44 +982,12 @@ To start using Kaltura, please complete the following steps:
 
 ***
 
-
-![29](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_029.png)
-
-![30](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_030.png)
-
-![31](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_031.png)
-
-
-
 That's it 
 
 After installation we can see the Home page of Kaltura Like this below 
 
 
-![32](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_032.png)
-
-
-
-
-![33](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_033.png)
-
-
-
-![34](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_034.png)
-
-
-
-![35](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_035.png)
-
-
-
-![36](https://github.com/babinlonston/Centos-Linux-Stuffs/raw/master/Installing%20Kaltura/Selection_036.png)
-
-
-
 ***
-
-
 
 ### Troubleshooting Database
 
@@ -1245,18 +1110,10 @@ Enter Password :
 Give ur password and get login 
 
 
-*
-
-------------------------------------------------------------------------------------------------------
-
-
-
 ### Setting Up SSL Certificate for Kaltura
 
 
-
 For an SSL encrypted web server you will need a few things. Depending on your install you may or may not have OpenSSL and mod_ssl, Apache's interface to OpenSSL. Use yum to get them if you need them.
-
 
 
 ```
@@ -1272,7 +1129,6 @@ Yum will either tell you they are installed or will install them for you.
 
 
 Using OpenSSL we will generate a self-signed certificate. If you are using this on a production server you are probably likely to want a key from Trusted Certificate Authority, but if you are just using this on a personal site or for testing purposes a self-signed certificate is fine. To create the key you will need to be root so you can either su to root or use sudo in front of the commands
-
 
 
 ```
@@ -1436,10 +1292,7 @@ Add All Below Contents in virtual Host
         SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 ```
 
-
 Find the following lines by searching for “http” and change the http in the following lines to https
-
-
 
 ```
 
@@ -1447,18 +1300,12 @@ RewriteRule .*  https://my-kaltura-site.com/kmc
 RewriteRule ^$  https://my-kaltura-site.com
 
 ```
-
-
 Restart apache 
-
-
 
 ```
 
 # /etc/init.d/httpd restart
 
 ```
-
-
 ------------------------------------------------------------------------------------------------
 

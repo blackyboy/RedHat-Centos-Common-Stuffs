@@ -43,8 +43,8 @@ Edit the Config file to change the need configuration
 In Line number 7,8 Change the Domain name and Name servers
 
 ```
-option domain-name "linuxmental.local";
-option domain-name-servers masterdns.linuxmental.local, slavedns.linuxmental.local;
+option domain-name "linuxzadmin.local";
+option domain-name-servers masterdns.linuxzadmin.local, slavedns.linuxzadmin.local;
 ```
 
 In Line number 10, 11 check for the lease time and max lease
@@ -93,17 +93,17 @@ Add the Fixed IP and Hostname for the Client machine in Fixed IP sections if you
 ```
 host node1 {
   hardware ethernet 52:54:00:17:3B:C7;
-  fixed-address node1.linuxmental.local;
+  fixed-address node1.linuxzadmin.local;
 }
 
 host node2 {
   hardware ethernet 52:54:00:1B:86:E0;
-  fixed-address node2.linuxmental.local;
+  fixed-address node2.linuxzadmin.local;
 }
 
 host node3 {
   hardware ethernet 52:54:00:DE:73:FD;
-  fixed-address node3.linuxmental.local;
+  fixed-address node3.linuxzadmin.local;
 }
 ```
 

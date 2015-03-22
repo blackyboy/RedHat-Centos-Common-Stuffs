@@ -2,7 +2,7 @@ How to setup a DHCP server in RHEL
 
 ```
 IP Address 	:	192.168.0.200
-Hostname	:	dhcpserver.linuxmental.com
+Hostname	:	dhcpserver.linuxzadmin.com
 ```
 
 Operating System:

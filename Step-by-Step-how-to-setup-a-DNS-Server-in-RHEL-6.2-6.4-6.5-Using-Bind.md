@@ -92,12 +92,12 @@ zone "." IN {
 };
 zone"linuxzadmin.local" IN {
 type master;
-file "forward.linuxmental";
+file "forward.linuxzadmin";
 allow-update { none; };
 };
 zone"0.168.192.in-addr.arpa" IN {
 type master;
-file "reverse.linuxmental";
+file "reverse.linuxzadmin";
 allow-update { none; };
 };
 include "/etc/named.rfc1912.zones";
@@ -112,7 +112,7 @@ Save and Exit the named.conf using wq!
 ### FORWARD ZONE :
 ------------
 
-a.) Create a Forward Zone file under /var/named in the name of forward.linuxmental
+a.) Create a Forward Zone file under /var/named in the name of forward.linuxzadmin
 
 There are Sample files under the /var/named/ Directory, Just make a Copy of that file and modify it as our need
 
@@ -120,13 +120,13 @@ There are Sample files under the /var/named/ Directory, Just make a Copy of that
 b.) Make a Copy of sample file as below
 
 ```
-[root@masterdns ~]# cp /var/named/named.localhost /var/named/forward.linuxmental
+[root@masterdns ~]# cp /var/named/named.localhost /var/named/forward.linuxzadmin
 ```
 
-c.) Edit the file forward.linuxmental
+c.) Edit the file forward.linuxzadmin
 
 ```
-[root@masterdns ~]# vim /var/named/forward.linuxmental
+[root@masterdns ~]# vim /var/named/forward.linuxzadmin
 
 
 $TTL 86400
@@ -156,21 +156,21 @@ node4           IN      A       192.168.0.208
 ### RESERVE ZONE:
 ------------
 
-a.) Create a Reserver Zone file under /var/named in the name of reverse.linuxmental
+a.) Create a Reserver Zone file under /var/named in the name of reverse.linuxzadmin
 
 There are Sample files under the /var/named/ Directory, Just make a Copy of that file and modify it as our need
 
 b.) Make a Copy of sample file as below
 
 ```
-[root@masterdns ~]# cp /var/named/named.loopback /var/named/reverse.linuxmental
+[root@masterdns ~]# cp /var/named/named.loopback /var/named/reverse.linuxzadmin
 
 ````
 
-c.) Edit the file reverse.linuxmental
+c.) Edit the file reverse.linuxzadmin
 
 ```
-[root@masterdns ~]# vim /var/named/reverse.linuxmental 
+[root@masterdns ~]# vim /var/named/reverse.linuxzadmin 
 
 
 $TTL 86400
@@ -211,20 +211,20 @@ total 40
 drwxr-x---. 6 root  named 4096 May 10 19:33 chroot
 drwxrwx---. 2 named named 4096 Nov 16  2011 data
 drwxrwx---. 2 named named 4096 Nov 16  2011 dynamic
--rw-r-----. 1 root  root   550 May 10 20:19 forward.linuxmental
+-rw-r-----. 1 root  root   550 May 10 20:19 forward.linuxzadmin
 -rw-r-----. 1 root  named 1892 Feb 18  2008 named.ca
 -rw-r-----. 1 root  named  152 Dec 15  2009 named.empty
 -rw-r-----. 1 root  named  152 Jun 21  2007 named.localhost
 -rw-r-----. 1 root  named  168 Dec 15  2009 named.loopback
--rw-r-----. 1 root  root   676 May 10 20:35 reverse.linuxmental
+-rw-r-----. 1 root  root   676 May 10 20:35 reverse.linuxzadmin
 drwxrwx---. 2 named named 4096 Nov 16  2011 slaves
 ```
 
 b.) Change the group to named using below Command 
 
 ```
-[root@masterdns ~]# chgrp named /var/named/forward.linuxmental 
-[root@masterdns ~]# chgrp named /var/named/reverse.linuxmental 
+[root@masterdns ~]# chgrp named /var/named/forward.linuxzadmin 
+[root@masterdns ~]# chgrp named /var/named/reverse.linuxzadmin 
 ```
 
 Here we can see the Output now which changed to named group
@@ -235,12 +235,12 @@ total 40
 drwxr-x---. 6 root  named 4096 May 10 19:33 chroot
 drwxrwx---. 2 named named 4096 Nov 16  2011 data
 drwxrwx---. 2 named named 4096 Nov 16  2011 dynamic
--rw-r-----. 1 root  named  550 May 10 20:19 forward.linuxmental
+-rw-r-----. 1 root  named  550 May 10 20:19 forward.linuxzadmin
 -rw-r-----. 1 root  named 1892 Feb 18  2008 named.ca
 -rw-r-----. 1 root  named  152 Dec 15  2009 named.empty
 -rw-r-----. 1 root  named  152 Jun 21  2007 named.localhost
 -rw-r-----. 1 root  named  168 Dec 15  2009 named.loopback
--rw-r-----. 1 root  named  676 May 10 20:35 reverse.linuxmental
+-rw-r-----. 1 root  named  676 May 10 20:35 reverse.linuxzadmin
 drwxrwx---. 2 named named 4096 Nov 16  2011 slaves
 ```
 
@@ -251,8 +251,8 @@ c.) Then we need to check the Context of the files under
 -rw-r-----. root named system_u:object_r:named_conf_t:s0 /etc/named.conf
 
 /etc/named.conf
-/var/named/forward.linuxmental
-/var/named/reverse.linuxmental
+/var/named/forward.linuxzadmin
+/var/named/reverse.linuxzadmin
 ```
 
 It want to be in the context of named_conf_t
@@ -268,11 +268,11 @@ If its Different than this then we need to restore the context using
 ```
 [root@masterdns ~]# named-checkconf /etc/named.conf 
 
-[root@masterdns ~]# named-checkzone linuxzadmin.local /var/named/forward.linuxmental 
+[root@masterdns ~]# named-checkzone linuxzadmin.local /var/named/forward.linuxzadmin 
 zone linuxzadmin.local/IN: loaded serial 2014051001
 OK
 
-[root@masterdns ~]# named-checkzone 0.168.192.in-addr.arpa /var/named/reverse.linuxmental 
+[root@masterdns ~]# named-checkzone 0.168.192.in-addr.arpa /var/named/reverse.linuxzadmin 
 zone 0.168.192.in-addr.arpa/IN: loaded serial 2014051001
 OK
 ```
@@ -457,12 +457,12 @@ zone "." IN {
 };
 zone"linuxzadmin.local" IN {
 type slave;
-file "slaves/linuxmental.fwd";
+file "slaves/linuxzadmin.fwd";
 masters { 192.168.0.200; };
 };
 zone"0.168.192.in-addr.arpa" IN {
 type slave;
-file "slaves/linuxmental.rev";
+file "slaves/linuxzadmin.rev";
 masters { 192.168.0.200; };
 };
 include "/etc/named.rfc1912.zones";
@@ -486,14 +486,14 @@ named          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
 ```
 [root@slavedns ~]# ls -l /var/named/slaves/
 total 8
--rw-r--r--. 1 named named 634 May 10 23:35 linuxmental.fwd
--rw-r--r--. 1 named named 773 May 10 23:35 linuxmental.rev
+-rw-r--r--. 1 named named 634 May 10 23:35 linuxzadmin.fwd
+-rw-r--r--. 1 named named 773 May 10 23:35 linuxzadmin.rev
 ```
 
 6. Here we can Check the Both File's 
 
 ```
-[root@slavedns ~]# cat /var/named/slaves/linuxmental.fwd 
+[root@slavedns ~]# cat /var/named/slaves/linuxzadmin.fwd 
 $ORIGIN .
 $TTL 86400	; 1 day
 linuxzadmin.local	IN SOA	masterdns.linuxzadmin.local. root.linuxzadmin.local. (
@@ -520,10 +520,10 @@ node4			A	192.168.0.208
 slavedns		A	192.168.0.201
 ```
 
-This is the Out put of linuxmental.rev 
+This is the Out put of linuxzadmin.rev 
 
 ```
-[root@slavedns ~]# cat /var/named/slaves/linuxmental.rev 
+[root@slavedns ~]# cat /var/named/slaves/linuxzadmin.rev 
 $ORIGIN .
 $TTL 86400	; 1 day
 0.168.192.in-addr.arpa	IN SOA	masterdns.linuxzadmin.local. root.linuxzadmin.local. (

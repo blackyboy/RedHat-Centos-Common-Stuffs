@@ -21,23 +21,23 @@ Primary DNS Server (or) Master DNS Server:
 
 ```
 IP Address :	192.168.0.200
-Hostname   :	masterdns.linuxmental.local
+Hostname   :	masterdns.linuxzadmin.local
 ```
 
 Secondary DNS Server (or) Slave DNS Server:
 
 ```
 IP Address :	192.168.0.201
-Hostname   :	slavedns.linuxmental.local
+Hostname   :	slavedns.linuxzadmin.local
 ```
 
 Nodes Machines :
 
 ```
-IP Address : 	192.168.0.205  ## Hostname : node1.linuxmental.local
-IP Address : 	192.168.0.206  ## Hostname : node2.linuxmental.local
-IP Address : 	192.168.0.207  ## Hostname : node3.linuxmental.local
-IP Address : 	192.168.0.208  ## Hostname : node4.linuxmental.local
+IP Address : 	192.168.0.205  ## Hostname : node1.linuxzadmin.local
+IP Address : 	192.168.0.206  ## Hostname : node2.linuxzadmin.local
+IP Address : 	192.168.0.207  ## Hostname : node3.linuxzadmin.local
+IP Address : 	192.168.0.208  ## Hostname : node4.linuxzadmin.local
 ```
 
 1. Primary DNS Server (or) Master DNS Server :
@@ -90,7 +90,7 @@ zone "." IN {
 	type hint;
 	file "named.ca";
 };
-zone"linuxmental.local" IN {
+zone"linuxzadmin.local" IN {
 type master;
 file "forward.linuxmental";
 allow-update { none; };
@@ -130,15 +130,15 @@ c.) Edit the file forward.linuxmental
 
 
 $TTL 86400
-@       IN SOA  masterdns.linuxmental.local. root.linuxmental.local. (
+@       IN SOA  masterdns.linuxzadmin.local. root.linuxzadmin.local. (
                                 2014051001      ; serial
                                         3600    ; refresh
                                         1800    ; retry
                                         604800  ; expire
                                         86400   ; minimum
 )
-@               IN      NS      masterdns.linuxmental.local.
-@               IN      NS      slavedns.linuxmental.local.
+@               IN      NS      masterdns.linuxzadmin.local.
+@               IN      NS      slavedns.linuxzadmin.local.
 @               IN      A       192.168.0.200
 @               IN      A       192.168.0.201
 @               IN      A       192.168.0.205
@@ -174,28 +174,28 @@ c.) Edit the file reverse.linuxmental
 
 
 $TTL 86400
-@       IN SOA  masterdns.linuxmental.local. root.linuxmental.local. (
+@       IN SOA  masterdns.linuxzadmin.local. root.linuxzadmin.local. (
                                 2014051001      ; serial
                                         3600    ; refresh
                                         1800    ; retry
                                         604800  ; expire
                                         86400   ; minimum
 )
-@               IN      NS      masterdns.linuxmental.local.
-@               IN      NS      slavedns.linuxmental.local.
-@               IN      PTR     linuxmental.local.
+@               IN      NS      masterdns.linuxzadmin.local.
+@               IN      NS      slavedns.linuxzadmin.local.
+@               IN      PTR     linuxzadmin.local.
 masterdns       IN      A       192.168.0.200
 slavedns        IN      A       192.168.0.201
 node1           IN      A       192.168.0.205
 node2           IN      A       192.168.0.206
 node3           IN      A       192.168.0.207
 node4           IN      A       192.168.0.208
-200             IN      PTR     masterdns.linuxmental.local.
-201             IN      PTR     slavedns.linuxmental.local.
-205             IN      PTR     node1.linuxmental.local.
-206             IN      PTR     node2.linuxmental.local.
-207             IN      PTR     node3.linuxmental.local.
-208             IN      PTR     node4.linuxmental.local.
+200             IN      PTR     masterdns.linuxzadmin.local.
+201             IN      PTR     slavedns.linuxzadmin.local.
+205             IN      PTR     node1.linuxzadmin.local.
+206             IN      PTR     node2.linuxzadmin.local.
+207             IN      PTR     node3.linuxzadmin.local.
+208             IN      PTR     node4.linuxzadmin.local.
 ```
 
 5. The files we created was in root group
@@ -268,8 +268,8 @@ If its Different than this then we need to restore the context using
 ```
 [root@masterdns ~]# named-checkconf /etc/named.conf 
 
-[root@masterdns ~]# named-checkzone linuxmental.local /var/named/forward.linuxmental 
-zone linuxmental.local/IN: loaded serial 2014051001
+[root@masterdns ~]# named-checkzone linuxzadmin.local /var/named/forward.linuxmental 
+zone linuxzadmin.local/IN: loaded serial 2014051001
 OK
 
 [root@masterdns ~]# named-checkzone 0.168.192.in-addr.arpa /var/named/reverse.linuxmental 
@@ -339,26 +339,26 @@ iptables       	0:off	1:off	2:on	3:on	4:on	5:on	6:off
 
 
 ```
-[root@masterdns ~]# dig masterdns.linuxmental.local
+[root@masterdns ~]# dig masterdns.linuxzadmin.local
 
-; <<>> DiG 9.7.3-P3-RedHat-9.7.3-8.P3.el6 <<>> masterdns.linuxmental.local
+; <<>> DiG 9.7.3-P3-RedHat-9.7.3-8.P3.el6 <<>> masterdns.linuxzadmin.local
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41316
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 1
 
 ;; QUESTION SECTION:
-;masterdns.linuxmental.local.	IN	A
+;masterdns.linuxzadmin.local.	IN	A
 
 ;; ANSWER SECTION:
-masterdns.linuxmental.local. 86400 IN	A	192.168.0.200
+masterdns.linuxzadmin.local. 86400 IN	A	192.168.0.200
 
 ;; AUTHORITY SECTION:
-linuxmental.local.	86400	IN	NS	masterdns.linuxmental.local.
-linuxmental.local.	86400	IN	NS	slavedns.linuxmental.local.
+linuxzadmin.local.	86400	IN	NS	masterdns.linuxzadmin.local.
+linuxzadmin.local.	86400	IN	NS	slavedns.linuxzadmin.local.
 
 ;; ADDITIONAL SECTION:
-slavedns.linuxmental.local. 86400 IN	A	192.168.0.201
+slavedns.linuxzadmin.local. 86400 IN	A	192.168.0.201
 
 ;; Query time: 0 msec
 ;; SERVER: 192.168.0.200#53(192.168.0.200)
@@ -370,21 +370,21 @@ slavedns.linuxmental.local. 86400 IN	A	192.168.0.201
 
 
 ```
-[root@masterdns ~]# nslookup linuxmental.local
+[root@masterdns ~]# nslookup linuxzadmin.local
 Server:		192.168.0.200
 Address:	192.168.0.200#53
 
-Name:	linuxmental.local
+Name:	linuxzadmin.local
 Address: 192.168.0.207
-Name:	linuxmental.local
+Name:	linuxzadmin.local
 Address: 192.168.0.208
-Name:	linuxmental.local
+Name:	linuxzadmin.local
 Address: 192.168.0.200
-Name:	linuxmental.local
+Name:	linuxzadmin.local
 Address: 192.168.0.201
-Name:	linuxmental.local
+Name:	linuxzadmin.local
 Address: 192.168.0.205
-Name:	linuxmental.local
+Name:	linuxzadmin.local
 Address: 192.168.0.206
 ```
 
@@ -455,7 +455,7 @@ zone "." IN {
 	type hint;
 	file "named.ca";
 };
-zone"linuxmental.local" IN {
+zone"linuxzadmin.local" IN {
 type slave;
 file "slaves/linuxmental.fwd";
 masters { 192.168.0.200; };
@@ -496,22 +496,22 @@ total 8
 [root@slavedns ~]# cat /var/named/slaves/linuxmental.fwd 
 $ORIGIN .
 $TTL 86400	; 1 day
-linuxmental.local	IN SOA	masterdns.linuxmental.local. root.linuxmental.local. (
+linuxzadmin.local	IN SOA	masterdns.linuxzadmin.local. root.linuxzadmin.local. (
 				2014051001 ; serial
 				3600       ; refresh (1 hour)
 				1800       ; retry (30 minutes)
 				604800     ; expire (1 week)
 				86400      ; minimum (1 day)
 				)
-			NS	slavedns.linuxmental.local.
-			NS	masterdns.linuxmental.local.
+			NS	slavedns.linuxzadmin.local.
+			NS	masterdns.linuxzadmin.local.
 			A	192.168.0.200
 			A	192.168.0.201
 			A	192.168.0.205
 			A	192.168.0.206
 			A	192.168.0.207
 			A	192.168.0.208
-$ORIGIN linuxmental.local.
+$ORIGIN linuxzadmin.local.
 masterdns		A	192.168.0.200
 node1			A	192.168.0.205
 node2			A	192.168.0.206
@@ -526,23 +526,23 @@ This is the Out put of linuxmental.rev
 [root@slavedns ~]# cat /var/named/slaves/linuxmental.rev 
 $ORIGIN .
 $TTL 86400	; 1 day
-0.168.192.in-addr.arpa	IN SOA	masterdns.linuxmental.local. root.linuxmental.local. (
+0.168.192.in-addr.arpa	IN SOA	masterdns.linuxzadmin.local. root.linuxzadmin.local. (
 				2014051001 ; serial
 				3600       ; refresh (1 hour)
 				1800       ; retry (30 minutes)
 				604800     ; expire (1 week)
 				86400      ; minimum (1 day)
 				)
-			NS	slavedns.linuxmental.local.
-			NS	masterdns.linuxmental.local.
-			PTR	linuxmental.local.
+			NS	slavedns.linuxzadmin.local.
+			NS	masterdns.linuxzadmin.local.
+			PTR	linuxzadmin.local.
 $ORIGIN 0.168.192.in-addr.arpa.
-200			PTR	masterdns.linuxmental.local.
-201			PTR	slavedns.linuxmental.local.
-205			PTR	node1.linuxmental.local.
-206			PTR	node2.linuxmental.local.
-207			PTR	node3.linuxmental.local.
-208			PTR	node4.linuxmental.local.
+200			PTR	masterdns.linuxzadmin.local.
+201			PTR	slavedns.linuxzadmin.local.
+205			PTR	node1.linuxzadmin.local.
+206			PTR	node2.linuxzadmin.local.
+207			PTR	node3.linuxzadmin.local.
+208			PTR	node4.linuxzadmin.local.
 masterdns		A	192.168.0.200
 node1			A	192.168.0.205
 node2			A	192.168.0.206
@@ -554,26 +554,26 @@ slavedns		A	192.168.0.201
 7. Check the DNS Server using dig from Slave Server 
 
 ```
-[root@slavedns ~]# dig masterdns.linuxmental.local
+[root@slavedns ~]# dig masterdns.linuxzadmin.local
 
-; <<>> DiG 9.7.3-P3-RedHat-9.7.3-8.P3.el6 <<>> masterdns.linuxmental.local
+; <<>> DiG 9.7.3-P3-RedHat-9.7.3-8.P3.el6 <<>> masterdns.linuxzadmin.local
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11178
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 1
 
 ;; QUESTION SECTION:
-;masterdns.linuxmental.local.	IN	A
+;masterdns.linuxzadmin.local.	IN	A
 
 ;; ANSWER SECTION:
-masterdns.linuxmental.local. 86400 IN	A	192.168.0.200
+masterdns.linuxzadmin.local. 86400 IN	A	192.168.0.200
 
 ;; AUTHORITY SECTION:
-linuxmental.local.	86400	IN	NS	masterdns.linuxmental.local.
-linuxmental.local.	86400	IN	NS	slavedns.linuxmental.local.
+linuxzadmin.local.	86400	IN	NS	masterdns.linuxzadmin.local.
+linuxzadmin.local.	86400	IN	NS	slavedns.linuxzadmin.local.
 
 ;; ADDITIONAL SECTION:
-slavedns.linuxmental.local. 86400 IN	A	192.168.0.201
+slavedns.linuxzadmin.local. 86400 IN	A	192.168.0.201
 
 ;; Query time: 2 msec
 ;; SERVER: 192.168.0.200#53(192.168.0.200)
@@ -608,33 +608,33 @@ d.) Here we can see the hostname Assigned from the DNS server
 
 ```
 [root@node1 ~]# hostname
-node1.linuxmental.local
+node1.linuxzadmin.local
 ```
 
 e.) If we need to check the DNS just do a Dig 
 
 
 ```
-[root@node1 ~]# dig masterdns.linuxmental.local
+[root@node1 ~]# dig masterdns.linuxzadmin.local
 
-; <<>> DiG 9.7.3-P3-RedHat-9.7.3-8.P3.el6 <<>> masterdns.linuxmental.local
+; <<>> DiG 9.7.3-P3-RedHat-9.7.3-8.P3.el6 <<>> masterdns.linuxzadmin.local
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 51788
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 1
 
 ;; QUESTION SECTION:
-;masterdns.linuxmental.local.	IN	A
+;masterdns.linuxzadmin.local.	IN	A
 
 ;; ANSWER SECTION:
-masterdns.linuxmental.local. 86400 IN	A	192.168.0.200
+masterdns.linuxzadmin.local. 86400 IN	A	192.168.0.200
 
 ;; AUTHORITY SECTION:
-linuxmental.local.	86400	IN	NS	slavedns.linuxmental.local.
-linuxmental.local.	86400	IN	NS	masterdns.linuxmental.local.
+linuxzadmin.local.	86400	IN	NS	slavedns.linuxzadmin.local.
+linuxzadmin.local.	86400	IN	NS	masterdns.linuxzadmin.local.
 
 ;; ADDITIONAL SECTION:
-slavedns.linuxmental.local. 86400 IN	A	192.168.0.201
+slavedns.linuxzadmin.local. 86400 IN	A	192.168.0.201
 
 ;; Query time: 1 msec
 ;; SERVER: 192.168.0.200#53(192.168.0.200)

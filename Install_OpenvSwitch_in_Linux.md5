@@ -1,0 +1,50 @@
+Install OpenvSwitch in Linux
+
+Open vSwitch is a multilayer virtual switch licensed under the open source.  Which has the level of production level quality with VLAN, traffic shapping etc.
+
+Open VSwitch come in source tar ball we need to build our own RPM from source. To build the RPM package we need to install with below RPM build package and dependecies.
+
+# yum install make gcc curl wget vim openssl-devel autoconf automake rpm-build libtool redhat-rpm-config python-devel openssl-devel kernel-devel kernel-debug-devel
+
+Create a rpm build direcoty under root's home.
+
+# mkdir -p ~/rpmbuild/SOURCES
+
+Download OpenvSwitch source code from official website. Move the downloaded tar ball to RPM build directory and extract the content.
+
+# wget http://openvswitch.org/releases/openvswitch-2.5.2.tar.gz
+
+# cp openvswitch-2.5.2.tar.gz ~/rpmbuild/SOURCES/
+
+#tar xfz openvswitch-2.5.2.tar.gz
+
+Replace kernel module to null using sed. Build the RPM using rpmbuild.
+
+# sed 's/openvswitch-kmod, //g' /root/rpmbuild//SOURCES/openvswitch-2.5.2/rhel/openvswitch.spec > /root/rpmbuild/SOURCES/openvswitch-2.5.2/rhel/openvswitch_no_kmod.spec
+
+# rpmbuild -bb --nocheck ~/rpmbuild/SOURCES/openvswitch-2.5.2/rhel/openvswitch_no_kmod.spec
+
+We are ready to install RPM package, Install with required SELinux policy package to restore Policy..
+
+# yum localinstall rpmbuild/RPMS/x86_64/openvswitch-2.5.2-1.x86_64.rpm 
+
+# yum install policycoreutils-python 
+
+# semanage fcontext -a -t openvswitch_rw_t "/etc/openvswitch(/.*)?" 
+
+# restorecon -Rv /etc/openvswitch
+
+Start the OpenVSwitch service and check for the status.
+
+# systemctl status openvswitch.service
+  
+# systemctl start openvswitch.service
+
+# systemctl status openvswitch.service
+
+# chkconfig openvswitch on
+
+To Check installed verion use below command.
+
+# ovs-vsctl -V
+
